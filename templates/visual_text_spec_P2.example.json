@@ -1,0 +1,21 @@
+{
+  "page": "P2",
+  "series": "生命科学教育与人才培养观察",
+  "title": "从实验操作到岗位能力",
+  "points": [
+    {
+      "heading": "样本与实验",
+      "detail": "理解样本处理、基本操作和实验记录"
+    },
+    {
+      "heading": "测序流程",
+      "detail": "认识建库、测序、数据产出的关键环节"
+    },
+    {
+      "heading": "结果与规范",
+      "detail": "关注质量控制、数据解释和科研伦理"
+    }
+  ],
+  "source_label": "AI教育概念示意图｜非真实培训现场",
+  "background_verified_text_free": true
+}
