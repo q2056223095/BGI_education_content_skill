@@ -12,7 +12,7 @@ version: 1.2.0
 
 **两张图均不得承载新闻报道详情。** 新闻来源、机构名称与合作事件细节、发布日期、政策条款、项目数字、科研方法、学员成果、研究结论、事实背景、证据/风险和链接，全部写入 **小红书文案.txt** 及 **来源与合规.md**，不得变成图上的正文段落、新闻摘要、时间线、数字列表、信息卡片或政策解读图。
 
-P1是主题封面：醒目主题标题，最多一句简短非新闻性质副标题，场景主视觉；P2是同题视觉延展：必须有一句简短的中文主题标题或引导语与完整主题画面，不强制“2–3条解释要点”，不做详情页。生成图必须是真实的两张独立图，不是双联、长图、拼版、contact sheet。无字P2在题材和视觉表达完整、且与P1不同的情况下**可以通过**；P1必须有主题标题。必要时图片角落用极简标签“AI概念示意图”，仅用于避免将模型合成场景误认为真实现场；不得因此添加新闻事实。
+P1是主题封面：醒目主题标题，最多一句简短非新闻性质副标题，场景主视觉；P2是同题视觉延展：必须有一句简短的中文主题标题或引导语与完整主题画面，不强制“2–3条解释要点”，不做详情页。生成图必须是真实的两张独立图，不是双联、长图、拼版、contact sheet。P2必须有一句可读的中文主题引导语；P1必须有主题标题。必要时图片角落用极简标签“AI概念示意图”，仅用于避免将模型合成场景误认为真实现场；不得因此添加新闻事实。
 
 ## 1. 每轮启动
 1. 读取本仓库当前 main 分支的 SKILL.md、README.md、AGENTS.md、docs/content_scope.md、docs/source_and_compliance.md、docs/editorial_style.md、docs/visual_guide.md、docs/image_quality_gate.md、docs/weekly_automation.md、templates/topic_card.md、templates/xiaohongshu_copy.md、templates/two_image_plan.md、templates/gpt_image_prompt.md、templates/batch_manifest.md、config.example.json；记录读取成功/失败，不冒充已读取。
