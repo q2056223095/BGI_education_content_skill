@@ -13,7 +13,7 @@ import json
 import sys
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFont, PngImagePlugin
+from PIL import Image, ImageDraw, ImageFont, ImageOps, PngImagePlugin
 
 SIZE = (1080, 1440)
 FONT_CANDIDATES = [
@@ -165,9 +165,10 @@ def render(background, spec_path, output, qa_path=None):
         die("背景图片无效")
     # ONLY use backgrounds that were generated as single full-page scenery.
     ratio = original.width / original.height
-    if not 0.70 <= ratio <= 0.80:
-        die("背景必须为独立3:4画面；拒绝双联或横向拼图")
-    image = background_with_gradients(original.resize(SIZE, Image.Resampling.LANCZOS))
+    if not 0.62 <= ratio <= 0.85:
+        die("背景应为单张竖版场景（支持3:4及2:3近似比例）；拒绝横向双联/拼图")
+    fitted = ImageOps.fit(original, SIZE, method=Image.Resampling.LANCZOS)
+    image = background_with_gradients(fitted)
     draw = ImageDraw.Draw(image)
     mask = Image.new("L", SIZE, 0)
     md = ImageDraw.Draw(mask)
