@@ -44,9 +44,10 @@
       "detail_list_allowed": false
     },
     "p2": {
-      "short_hook_optional": true,
-      "can_be_text_free": true,
-      "detail_list_allowed": false
+      "short_hook_optional": false,
+      "can_be_text_free": false,
+      "detail_list_allowed": false,
+      "requires_one_short_nonnews_theme_hook": true
     },
     "max_generation_retries_per_image": 2
   }
