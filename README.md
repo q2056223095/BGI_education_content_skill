@@ -15,7 +15,8 @@
 - 每题：1 篇小红书完整文案（含 5–8 个标签）+ **P1.png 和 P2.png 两张独立的 1080×1440 PNG** + 来源与合规说明。
 - 批次：候选筛选报告、各选题文件夹、批次清单、ZIP整包和云端读回记录。
 - 无人值守：自检 P1 后直接生成 P2，无需逐张确认；失败最多重试2次，未完成就明确缺件。
-- **不能把合成拼图、四宫格、contact sheet 或长图冒充两张独立图片。**
+- **不能把无字背景、拼版、四宫格或contact sheet冒充成片。** P1必须有中文标题、副标题、来源角标；P2必须有解释标题、2–3条文字要点、来源角标，机器校验不通过直接标缺件。
+- 强制采用“无字背景→已核验中文文字稿→程序叠加→机器＋视觉双重验收”的链条；禁止让生图模型自行拼写文字。
 
 ## 文档导航
 - [SKILL.md](SKILL.md)：调用和完整执行流程
@@ -23,6 +24,9 @@
 - [来源与合规](docs/source_and_compliance.md)：政策、报道、论文的分类核验与风险
 - [编辑风格](docs/editorial_style.md)：自然中文与事实驱动表达
 - [双图规范](docs/visual_guide.md)：2张独立3:4图片及不同内容的视觉身份
+- [图片质检与失败重做](docs/image_quality_gate.md)：无字图拒收、文字后期叠加、缺页FAIL及重试流程
+- [程序化文字叠加](scripts/render_and_validate.py)：输出带标题、说明、图源角标的PNG及QA记录
+- [批次图片硬验收](scripts/verify_batch.py)：图片或文字缺件一律不算完成
 - [自动化执行](docs/weekly_automation.md)：周期任务、交付结构与异常处理
 - [选题卡](templates/topic_card.md)
 - [文案模板](templates/xiaohongshu_copy.md)
@@ -42,4 +46,4 @@
 ## 初始化
 将 SKILL.md 或 docs/weekly_automation.md 作为智能体工作指令。先补充 config.example.json 中缺失的目标云盘文件夹ID（复制为本地 config.json 时不要公开个人令牌）。连接检索、图片生成、GitHub 和云盘能力后，先执行小批次验证，再启动周期任务。
 
-版本：1.0.0（2026-11-09）。
+版本：1.1.0（2026-11-09）。
