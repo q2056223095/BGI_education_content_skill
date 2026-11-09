@@ -1,6 +1,6 @@
 {
   "project": "bgi-education-content",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "github": {
     "repository": "q2056223095/BGI_education_content_skill",
     "branch": "main"
@@ -23,21 +23,31 @@
   },
   "publish_to_social_platform": false,
   "image_quality_gate": {
-    "deterministic_text_overlay_required": true,
-    "p1_requires": [
-      "title",
-      "subtitle",
-      "source_label"
-    ],
-    "p2_requires": [
-      "title",
-      "points>=2",
-      "source_label"
-    ],
-    "require_manifest_and_qa": true,
-    "require_visual_semantic_review": true,
+    "visual_content_review_required": true,
+    "verify_dimensions": true,
+    "verify_single_page": true,
+    "verify_no_news_details": true,
+    "verify_no_misleading_real_scene": true,
+    "verify_title_p1": true,
+    "verify_no_fake_logo": true,
     "fail_closed": true,
-    "render_script": "scripts/render_and_validate.py",
-    "batch_gate": "scripts/verify_batch.py"
+    "manual_or_model_review_log": "图片验收.md"
+  },
+  "image_generation": {
+    "provider": "GPT image generation model",
+    "final_image_generated_entirely_by_gpt": true,
+    "postprocess_text_overlay_allowed": false,
+    "news_details_in_image_allowed": false,
+    "p1": {
+      "requires_short_title": true,
+      "optional_short_subtitle": true,
+      "detail_list_allowed": false
+    },
+    "p2": {
+      "short_hook_optional": true,
+      "can_be_text_free": true,
+      "detail_list_allowed": false
+    },
+    "max_generation_retries_per_image": 2
   }
 }
