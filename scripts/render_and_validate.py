@@ -57,6 +57,9 @@ def font_path(spec):
 
 
 def font(path, size):
+    # NotoSansCJK .ttc face 0 is Japanese; use face 2 for Simplified Chinese.
+    if Path(path).name.startswith("NotoSansCJK-") and str(path).lower().endswith(".ttc"):
+        return ImageFont.truetype(str(path), size, index=2)
     return ImageFont.truetype(str(path), size)
 
 
