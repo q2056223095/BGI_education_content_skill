@@ -1,6 +1,6 @@
 {
   "project": "bgi-education-content",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "github": {
     "repository": "q2056223095/BGI_education_content_skill",
     "branch": "main"
@@ -21,5 +21,23 @@
     "root_folder_id": null,
     "comment": "请填入新的教育内容交付目录ID；不得默认沿用科研热点目录"
   },
-  "publish_to_social_platform": false
+  "publish_to_social_platform": false,
+  "image_quality_gate": {
+    "deterministic_text_overlay_required": true,
+    "p1_requires": [
+      "title",
+      "subtitle",
+      "source_label"
+    ],
+    "p2_requires": [
+      "title",
+      "points>=2",
+      "source_label"
+    ],
+    "require_manifest_and_qa": true,
+    "require_visual_semantic_review": true,
+    "fail_closed": true,
+    "render_script": "scripts/render_and_validate.py",
+    "batch_gate": "scripts/verify_batch.py"
+  }
 }
