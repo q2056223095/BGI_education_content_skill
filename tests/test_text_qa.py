@@ -78,6 +78,35 @@ class QualityGateTest(unittest.TestCase):
         self.cmd("render", "--background", self.bg, "--spec", spec,
                  "--out", self.dir / "P2.png", ok=False)
 
+    def test_p2_render_and_verify_text(self):
+        p2 = {
+            "page": "P2",
+            "series": "生命科学教育与人才培养观察",
+            "title": "从实验操作到岗位能力",
+            "points": [
+                {"heading": "实验与规范", "detail": "理解样本操作与实验记录"},
+                {"heading": "测序技术", "detail": "认识测序流程与数据产出"},
+                {"heading": "结果解释", "detail": "学习质量管理与解释边界"}
+            ],
+            "source_label": "AI教育概念示意图｜非真实培训现场",
+            "background_verified_text_free": True
+        }
+        spec = self.spec_file(p2, "P2.spec.json")
+        out = self.dir / "P2.png"
+        self.cmd("render", "--background", self.bg, "--spec", spec, "--out", out)
+        self.cmd("verify", "--image", out, "--spec", spec)
+        with Image.open(out) as im:
+            self.assertEqual(im.info["bgi_page"], "P2")
+            self.assertGreaterEqual(int(im.info["bgi_text_count"]), 6)
+
+    def test_text_changed_after_render_fails(self):
+        spec = self.spec_file(self.p1)
+        out = self.dir / "P1.png"
+        self.cmd("render", "--background", self.bg, "--spec", spec, "--out", out)
+        changed = {**self.p1, "title": "测序实验工程师需要学习什么？"}
+        self.spec_file(changed)
+        self.cmd("verify", "--image", out, "--spec", spec, ok=False)
+
     def test_tampered_image_fails(self):
         spec = self.spec_file(self.p1)
         out = self.dir / "P1.png"
