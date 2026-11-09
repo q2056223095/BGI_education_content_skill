@@ -1,11 +1,10 @@
-# AI Agent 指令
+# Agent运行规范（V1.2）
 
-执行本项目任务时先阅读 SKILL.md；再按需读取 docs/content_scope.md、docs/source_and_compliance.md、docs/editorial_style.md、docs/visual_guide.md、docs/weekly_automation.md，以及全部 templates 文件。
-
-不可自动复用旧版生命科学科研热点项目的“每题五张图”规则。本仓库最新默认：教育相关7大板块、每周择优3–5个、每题1篇完整小红书正文 + P1和P2各1张独立1080×1440 PNG + 合规资料、无人值守自动自检；不代发布。
-
-具体认证资质、合作状态、学员/未成年人成果和科研细节必须核对来源；未获授权不发布未成年人的个人信息、肖像。没有指定新的 Google Drive 目标文件夹ID不得以旧项目目录代替，也不得声称云盘已交付。
-
-## V1.1图片必须有文字的硬门槛
-
-不允许只生成纯场景图片后直接交付。每个选题先核准P1/P2中文文案、再生成两张独立无字背景，并使用 `scripts/render_and_validate.py` 叠加准确中文：P1有主标题、副标题与图源标签；P2有标题、2–3条有实质内容的解释、图源标签。各页运行 `verify`，批次运行 `scripts/verify_batch.py`。脚本无中文字体/不可运行、视觉检查失败或无QA记录，都不能算完整成品；必须记录缺件。严格参见 `docs/image_quality_gate.md`。
+1. 每轮先读取最新 `SKILL.md`、`docs/content_scope.md`、`docs/source_and_compliance.md`、`docs/editorial_style.md`、`docs/visual_guide.md`、`docs/image_quality_gate.md`、`docs/weekly_automation.md` 及相关模板。
+2. 账号核心：专业认证、高校联合培养、青少年教育，兼顾政策、华大科研、办学成果、科研素养。以真实华大教育工作为基础。
+3. 每批择优3–5题，每题完整真实自然小红书正文、两张独立3:4 GPT图像模型成片及来源/合规说明。
+4. **图片只做主题视觉，不刊登任何新闻事实或详细信息。** P1仅主题标题和可选短副标题；P2为视觉延展，至多短标题/引导语，允许无字。报道日期、人数、合作事件、政策条款、科研结论、课程内容、风险均写入小红书正文。
+5. **最终图片必须GPT图像模型直接生成。禁止Pillow、Canvas、SVG、HTML、Python或其他程序进行后期文字叠加、图文信息卡拼贴。** 纯尺寸格式转换不应改变内容。
+6. 视觉质检后不合格必须修改提示词、由GPT重新生成；每张最多重试2次。无字P2不是失败，但无主标题P1是失败。无版权许可不得呈现真实孩子肖像，AI示意图不得冒称实拍。
+7. 旧版 `scripts/render_and_validate.py` 与 `scripts/verify_batch.py` 的代码叠字工作流已废弃，禁止引用或回退；按 docs/image_quality_gate.md 的视觉审核和真实文件检查验收。
+8. 仅在新教育账号指定的云盘文件夹下交付；否则提供本地文件并明确说明未上传。绝不代发小红书。
