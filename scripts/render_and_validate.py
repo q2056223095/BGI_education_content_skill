@@ -200,8 +200,8 @@ def render(background, spec_path, output, qa_path=None):
                                  font(fpath, 39), 900, "#72EAED", 1, 49)[0]
             entries += multiline(draw, md, 91, y + 64, row["detail"],
                                  font(fpath, 30), 902, "#FFFFFF", 2, 37)[0]
-    entries += multiline(draw, md, 75, 1363, spec["source_label"],
-                         font(fpath, 23), 925, "#E2F6FB", 2, 29)[0]
+    entries += multiline(draw, md, 75, 1347, spec["source_label"],
+                         font(fpath, 28), 925, "#E2F6FB", 2, 34)[0]
     # If the source label needs two lines, move it earlier by adjusting the spec
     for e in entries:
         if e["bbox"][3] > 1436:
