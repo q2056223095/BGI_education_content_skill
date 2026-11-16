@@ -1,6 +1,6 @@
 {
   "project": "bgi-education-content",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "github": {
     "repository": "q2056223095/BGI_education_content_skill",
     "branch": "main"
@@ -49,6 +49,11 @@
       "detail_list_allowed": false,
       "requires_one_short_nonnews_theme_hook": true
     },
-    "max_generation_retries_per_image": 2
+    "max_generation_retries_per_image": 2,
+    "isolated_single_page_payload_required": true,
+    "forbid_batch_context_in_image_request": true,
+    "single_topic_smoke_gate_required": true,
+    "smoke_test_protocol": "docs/single_topic_smoke_test.md",
+    "ignore_unverifiable_context_isolation_claims": true
   }
 }
